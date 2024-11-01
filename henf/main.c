@@ -37,9 +37,12 @@ int s(),d(),so(),bd(),l(),a(),r(),w(),c(),o();
 
 #define SECHECK(x) (*AIP(SE)<=6?x:-1)
 
-static volatile char b[BSZ] = {0, 2,0,0,0, 1,0,0,0, 1, 2,0,SADDRS,0,0,0,0,0,0,0,0, 4,0,0,0, 'H','T','T','P','/','1','.','1',' ','2','0','0',' ','O','k','\r','\n','\r','\n', '-'}; 
+static volatile char b[BSZ] = {0, 2,0,0,0, 1,0,0,0, 1, 2,0,SADDRS,0,0,0,0,0,0,0,0, 4,0,0,0, 'H','T','T','P','/','1','.','1',' ','2','0','0',' ','O','k','\r','\n','\r','\n', '-'};
+
+char *fmt = "%2$.38s...\n%4$s\n%3$hhn";
+#define arg c(w(*AIP(SA),WRSTR,r(d(a(*AIP(S),0,l(SECHECK(*AIP(S)),bd(SECHECK(*AIP(S)),SADDR,so(d(SECHECK(s(SARGS)),*AIP(S)),SOARGS)?SADDRSZ:SADDRSZ)?1:1)?0:0),*AIP(SA)),SBUF,SBUFSZ-1)?r(o(av[1],0),WRSTR+(WRSTRSZ-1),256)+WRSTRSZ:WRSTRSZ)?*AIP(SA):*AIP(SA)),SBUF,AIP(SE),WRSTR
 
 int main(int ac, char **av) {
-    while(!*EXIT) printf("%2$.38s...\n%4$s\n%3$hhn",c(w(*AIP(SA),WRSTR,r(d(a(*AIP(S),0,l(SECHECK(*AIP(S)),bd(SECHECK(*AIP(S)),SADDR,so(d(SECHECK(s(SARGS)),*AIP(S)),SOARGS)?SADDRSZ:SADDRSZ)?1:1)?0:0),*AIP(SA)),SBUF,SBUFSZ-1)?r(o(av[1],0),WRSTR+(WRSTRSZ-1),256)+WRSTRSZ:WRSTRSZ)?*AIP(SA):*AIP(SA)),SBUF,AIP(SE),WRSTR);
+    while(!*EXIT) printf(fmt,arg);
     return 0;
 }
